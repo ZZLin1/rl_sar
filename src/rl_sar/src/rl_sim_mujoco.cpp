@@ -385,7 +385,19 @@ std::vector<float> RL_Sim::Forward()
     }
 
     std::vector<float> clamped_obs = this->ComputeObservation();
-
+    // 打印clamped_obs的长度
+    // std::cout << LOGGER::INFO << "Clamped observation size: " << clamped_obs.size() << std::endl;
+    // 打印clamped_obs的内容
+    // std::cout << LOGGER::INFO << "Clamped observation: [";
+    // for (size_t i = 0; i < clamped_obs.size(); ++i)
+    // {
+    //     std::cout << clamped_obs[i];
+    //     if (i != clamped_obs.size() - 1)
+    //     {
+    //         std::cout << ", ";
+    //     }
+    // }
+    // std::cout << "]" << std::endl;      
     std::vector<float> actions;
     if (this->params.Get<std::vector<int>>("observations_history").size() != 0)
     {
@@ -396,6 +408,15 @@ std::vector<float> RL_Sim::Forward()
     else
     {
         actions = this->model->forward({clamped_obs});
+        //手动赋予actions为0向量，长度为num_of_dofs
+        // actions = std::vector<float>(this->params.Get<int>("num_of_dofs"), 0.0f);
+        //手动赋予actions24个数，长度num_of_dofs为24
+        // actions = std::vector<float>{1.0f, 1.0f, 1.0f, 1.0f,
+        //                              1.0f, 1.0f, 1.0f, 1.0f,
+        //                              -1.0f, -1.0f, -1.0f, -1.0f,
+        //                              -1.0f, -1.0f, -1.0f, -1.0f,
+        //                              -1.0f, -1.0f, -1.0f, -1.0f,
+        //                              1.0f, 1.0f, 1.0f, 1.0f,};
     }
 
     if (!this->params.Get<std::vector<float>>("clip_actions_upper").empty() && !this->params.Get<std::vector<float>>("clip_actions_lower").empty())

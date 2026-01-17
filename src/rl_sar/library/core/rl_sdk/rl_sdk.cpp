@@ -165,6 +165,11 @@ std::vector<float> RL::ComputeObservation()
             std::vector<float> phase_vec = {phase};
             obs_list.push_back(phase_vec);
         }
+        else if (observation == "hex4/phase")
+        {
+            std::vector<float> hex4_phase = {0.0f};
+            obs_list.push_back(hex4_phase);
+        }
     }
 
     this->obs_dims.clear();

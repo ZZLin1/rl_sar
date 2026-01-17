@@ -1,0 +1,60 @@
+# Copyright (c) 2024-2025 Ziqi Fan
+# SPDX-License-Identifier: Apache-2.0
+
+hex4:
+  dt: 0.005
+  decimation: 4
+  fixed_kp: [180.0, 180.0, 180.0, 180.0,
+             180.0, 180.0, 180.0, 180.0,
+             180.0, 180.0, 180.0, 180.0,
+             180.0, 180.0, 180.0, 180.0,
+             180.0, 180.0, 180.0, 180.0,
+             180.0, 180.0, 180.0, 180.0]
+  fixed_kd: [2.5, 2.5, 2.5, 2.5,
+             2.5, 2.5, 2.5, 2.5,
+             2.5, 2.5, 2.5, 2.5,
+             2.5, 2.5, 2.5, 2.5,
+             2.5, 2.5, 2.5, 2.5,
+             2.5, 2.5, 2.5, 2.5]
+
+  num_of_dofs: 24
+
+  wheel_indices: []
+  torque_limits: [60.0, 60.0, 60.0, 60.0,
+                  60.0, 60.0, 60.0, 60.0,
+                  60.0, 60.0, 60.0, 60.0,
+                  60.0, 60.0, 60.0, 60.0,
+                  60.0, 60.0, 60.0, 60.0,
+                  60.0, 60.0, 60.0, 60.0]
+  default_dof_pos: [ 0.00, 0.00, -0.50, 2.00,
+                     0.00, 0.00, -0.50, 2.00,
+                     0.00, 0.00, -0.50, 2.00,
+                     0.00, 0.00, -0.50, 2.00,
+                     0.00, 0.00, -0.50, 2.00,
+                     0.00, 0.00, -0.50, 2.00]
+
+  # default_dof_pos: [ 0.00, 0.00, 0.00, 0.00,
+  #                       0.00, 0.00, 0.00, 0.00,
+  #                       0.00, 0.00, 0.00, 0.00,
+  #                       0.00, 0.00, 0.00, 0.00,
+  #                       0.00, 0.00, 0.00, 0.00,
+  #                       0.00, 0.00, 0.00, 0.00]
+
+  joint_names: ["LF_joint1","LF_joint2","LF_joint3","LF_joint4",
+                "LM_joint1","LM_joint2","LM_joint3","LM_joint4",
+                "LB_joint1","LB_joint2","LB_joint3","LB_joint4",
+                "RF_joint1","RF_joint2","RF_joint3","RF_joint4",
+                "RM_joint1","RM_joint2","RM_joint3","RM_joint4",
+                "RB_joint1","RB_joint2","RB_joint3","RB_joint4"]
+  joint_controller_names: ["LF_controller1","LF_controller2","LF_controller3","LF_controller4",
+                           "LM_controller1","LM_controller2","LM_controller3","LM_controller4",
+                           "LB_controller1","LB_controller2","LB_controller3","LB_controller4",
+                           "RF_controller1","RF_controller2","RF_controller3","RF_controller4",
+                           "RM_controller1","RM_controller2","RM_controller3","RM_controller4",
+                           "RB_controller1","RB_controller2","RB_controller3","RB_controller4"]
+  joint_mapping: [0, 1, 2, 3, 
+                  4, 5, 6, 7, 
+                  8, 9, 10, 11, 
+                  12, 13, 14, 15, 
+                  16, 17, 18, 19, 
+                  20, 21, 22, 23]
