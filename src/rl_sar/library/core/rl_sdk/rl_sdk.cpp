@@ -170,6 +170,25 @@ std::vector<float> RL::ComputeObservation()
             std::vector<float> hex4_phase = {0.0f};
             obs_list.push_back(hex4_phase);
         }
+        else if (observation == "hex4/pos")
+        {
+            std::vector<float> hex4_pos(24, 0.0f);
+            float sin_val = sin(this->motiontime);
+            hex4_pos[4] = 1.3;// *sin_val;
+            hex4_pos[5] = 0.5; //sin_val;
+            hex4_pos[6] = -1; //sin_val;
+            hex4_pos[7] = 0.8; //sin_val;
+            hex4_pos[16] = 1.3;// *sin_val;
+            hex4_pos[17] = 0.5; //sin_val;
+            hex4_pos[18] = -1; //sin_val;
+            hex4_pos[19] = 0.8; //sin_val;
+            obs_list.push_back(hex4_pos);
+        }
+        else if (observation == "hex4/id")
+        {
+            std::vector<float> hex4_id = {0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f};
+            obs_list.push_back(hex4_id);
+        }
     }
 
     this->obs_dims.clear();
